@@ -8,6 +8,13 @@ angular.module('ui.composite', [])
         $scope.widgetTranscludes = [];
         $scope.widgetDefs = [];
 
+        $scope.transcludes = {};
+
+        this.registerHeaderTransclude = function (directiveTransclude) {
+          $scope.headerTransclude = directiveTransclude;
+          $scope.transcludes.header = directiveTransclude;
+        };
+
         this.addWidgetTransclude = function (widgetTransclude) {
           var widgetDef = {
             id: $scope.widgetDefs.length, // index in widgetTranscludes array
@@ -26,6 +33,21 @@ angular.module('ui.composite', [])
       }
     };
   })
+  .directive('wtTransclude', function ($animate) {
+    return {
+      transclude: true,
+      link: function (scope, element, attrs) {
+        var id = attrs.wtTransclude;
+        var directiveTransclude = scope.transcludes[id];
+        if (directiveTransclude) {
+          var selectedScope = scope.$new();
+          directiveTransclude.transclude(selectedScope, function (copy) {
+            $animate.enter(copy, element);
+          });
+        }
+      }
+    };
+  })
   .directive('wtWidgetTransclude', function ($animate) {
     return {
       transclude: true,
@@ -37,6 +59,21 @@ angular.module('ui.composite', [])
         widgetTransclude.transclude(selectedScope, function (copy) {
           $animate.enter(copy, element);
         });
+      }
+    };
+  })
+  .directive('wtHeader', function () {
+    return {
+      transclude: 'element',
+      priority: 100,
+      require: '^wtComposite',
+      link: function (scope, element, attrs, ctrl, $transclude) {
+        var directiveTransclude = {
+          transclude: $transclude,
+          element: element
+        };
+
+        ctrl.registerHeaderTransclude(directiveTransclude);
       }
     };
   })
