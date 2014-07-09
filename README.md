@@ -6,9 +6,9 @@ AngularJS Composite Directive
 
 ```html
 <div wt-composite>
-    <span wt-section="header">
+    <div wt-section="header">
         Composite Component Title
-    </span>
+    </div>
     <div wt-widget wt-name="first widget">
         <div class="alert alert-success">
             Random Value: {{randomValue}}
@@ -22,9 +22,9 @@ AngularJS Composite Directive
     <div wt-widget wt-name="third widget">
         <div wt-time></div>
     </div>
-    <span wt-section="footer">
+    <div wt-section="footer">
         Composite Component Footer
-    </span>
+    </div>
 </div>
 ```
 
