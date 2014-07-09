@@ -3,7 +3,6 @@ angular-composite-directive
 
 AngularJS Composite Directive
 
-
 ```html
 <div wt-composite>
     <div wt-section="header">
@@ -27,6 +26,29 @@ AngularJS Composite Directive
     </div>
 </div>
 ```
+
+
+## Running Application
+
+ Install Node.js dependencies:
+
+ ``` bash
+    $ npm install
+ ```
+
+ Install Bower dependencies:
+
+ ``` bash
+    $ bower install
+ ```
+
+ Launch Node.js server with Grunt:
+
+ ``` bash
+    $ grunt serve
+ ```
+
+ Application will be available at http://localhost:9000
 
 Links
 -----
