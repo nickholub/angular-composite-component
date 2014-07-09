@@ -3,6 +3,10 @@ angular-composite-directive
 
 AngularJS Composite Directive
 
+Directive [source code](app/directive)
+
+Directive [example usage](app)
+
 ```html
 <div wt-composite>
     <div wt-section="header">
