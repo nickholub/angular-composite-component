@@ -7,8 +7,8 @@ module.exports = function (grunt) {
   grunt.initConfig({
     watch: {
       files: [
-        '*.js',
-        '*.html'
+        'app/{,*/}*.js',
+        'app/{,*/}*.html'
       ],
       tasks: [],
       livereload: {
@@ -16,8 +16,8 @@ module.exports = function (grunt) {
           livereload: '<%= connect.options.livereload %>'
         },
         files: [
-          '*.html',
-          '*.js'
+          'app/{,*/}*.html',
+          'app/**/*.js'
         ]
       }
     },
@@ -27,7 +27,7 @@ module.exports = function (grunt) {
       },
       all: [
         'Gruntfile.js',
-        '{,*/}*.js'
+        'app/{,*/}*.js'
       ]
     },
     connect: {
@@ -41,7 +41,7 @@ module.exports = function (grunt) {
         options: {
           open: true,
           base: [
-            '.'
+            'app'
           ]
         }
       }

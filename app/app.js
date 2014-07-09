@@ -4,7 +4,7 @@ angular.module('app', ['ngRoute', 'ui.composite'])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'main.html',
+        templateUrl: '../main.html',
         controller: 'MainCtrl'
       });
   })
