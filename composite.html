@@ -1,0 +1,21 @@
+<div>
+    <p>Composite Component</p>
+
+    <p>
+        <button ng-repeat="widget in widgetDefs"
+                type="button" class="btn btn-sm btn-primary">
+            {{widget.name}}
+        </button>
+    </p>
+
+    <div ng-repeat="widgetDef in widgetDefs">
+        <div class="widget panel panel-default">
+            <div class="widget-header panel-heading">
+                {{widgetDef.name}}
+            </div>
+            <div class="panel-body">
+                <div wt-widget-transclude="widgetDef"></div>
+            </div>
+        </div>
+    </div>
+</div>
