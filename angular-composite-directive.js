@@ -7,13 +7,7 @@ angular.module('ui.composite', [])
       controller: function ($scope) {
         $scope.widgetTranscludes = [];
         $scope.widgetDefs = [];
-
         $scope.transcludes = {};
-
-        this.registerHeaderTransclude = function (directiveTransclude) {
-          $scope.headerTransclude = directiveTransclude;
-          $scope.transcludes.header = directiveTransclude;
-        };
 
         this.registerTransclude = function (directiveTransclude) {
           var id = directiveTransclude.id;
@@ -38,35 +32,7 @@ angular.module('ui.composite', [])
       }
     };
   })
-  .directive('wtTransclude', function ($animate) {
-    return {
-      transclude: true,
-      link: function (scope, element, attrs) {
-        var id = attrs.wtTransclude;
-        var directiveTransclude = scope.transcludes[id];
-        if (directiveTransclude) {
-          var selectedScope = scope.$new();
-          directiveTransclude.transclude(selectedScope, function (copy) {
-            $animate.enter(copy, element);
-          });
-        }
-      }
-    };
-  })
-  .directive('wtWidgetTransclude', function ($animate) {
-    return {
-      transclude: true,
-      link: function (scope, element, attrs) {
-        var widgetDef = scope.$eval(attrs.wtWidgetTransclude);
-        var selectedScope = scope.$new();
-        var widgetTransclude = scope.widgetTranscludes[widgetDef.id];
-
-        widgetTransclude.transclude(selectedScope, function (copy) {
-          $animate.enter(copy, element);
-        });
-      }
-    };
-  })
+  // directive to capture "wt-section" content
   .directive('wtSection', function () {
     return {
       transclude: 'element',
@@ -83,6 +49,7 @@ angular.module('ui.composite', [])
       }
     };
   })
+  // directive to capture "wt-widget" content
   .directive('wtWidget', function () {
     return {
       transclude: 'element',
@@ -96,6 +63,37 @@ angular.module('ui.composite', [])
         };
 
         ctrl.addWidgetTransclude(widgetTransclude);
+      }
+    };
+  })
+  // directive to output "wt-section" content
+  .directive('wtTransclude', function ($animate) {
+    return {
+      transclude: true,
+      link: function (scope, element, attrs) {
+        var id = attrs.wtTransclude;
+        var directiveTransclude = scope.transcludes[id];
+        if (directiveTransclude) {
+          var selectedScope = scope.$new();
+          directiveTransclude.transclude(selectedScope, function (copy) {
+            $animate.enter(copy, element);
+          });
+        }
+      }
+    };
+  })
+  // directive to output "wt-widget" content
+  .directive('wtWidgetTransclude', function ($animate) {
+    return {
+      transclude: true,
+      link: function (scope, element, attrs) {
+        var widgetDef = scope.$eval(attrs.wtWidgetTransclude);
+        var selectedScope = scope.$new();
+        var widgetTransclude = scope.widgetTranscludes[widgetDef.id];
+
+        widgetTransclude.transclude(selectedScope, function (copy) {
+          $animate.enter(copy, element);
+        });
       }
     };
   });
