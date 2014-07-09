@@ -1,5 +1,5 @@
 angular-composite-directive
 ====================
 
-TODO
+AngularJS Composite Directive
 
