@@ -15,6 +15,11 @@ angular.module('ui.composite', [])
           $scope.transcludes.header = directiveTransclude;
         };
 
+        this.registerTransclude = function (directiveTransclude) {
+          var id = directiveTransclude.id;
+          $scope.transcludes[id] = directiveTransclude;
+        };
+
         this.addWidgetTransclude = function (widgetTransclude) {
           var widgetDef = {
             id: $scope.widgetDefs.length, // index in widgetTranscludes array
@@ -62,18 +67,19 @@ angular.module('ui.composite', [])
       }
     };
   })
-  .directive('wtHeader', function () {
+  .directive('wtSection', function () {
     return {
       transclude: 'element',
       priority: 100,
       require: '^wtComposite',
       link: function (scope, element, attrs, ctrl, $transclude) {
         var directiveTransclude = {
+          id: attrs.wtSection,
           transclude: $transclude,
           element: element
         };
 
-        ctrl.registerHeaderTransclude(directiveTransclude);
+        ctrl.registerTransclude(directiveTransclude);
       }
     };
   })

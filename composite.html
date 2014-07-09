@@ -1,7 +1,9 @@
 <div>
-    <p>
-        Header: <span wt-transclude="header"></span>
-    </p>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <span wt-transclude="header"></span>
+        </div>
+    </div>
 
     <p>
         <button ng-repeat="widget in widgetDefs"
@@ -18,6 +20,12 @@
             <div class="panel-body">
                 <div wt-widget-transclude="widgetDef"></div>
             </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <span wt-transclude="footer"></span>
         </div>
     </div>
 </div>
