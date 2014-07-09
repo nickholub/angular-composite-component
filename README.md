@@ -5,9 +5,27 @@ AngularJS Composite Directive
 
 
 ```html
-<p>
-test html
-</p>
+<div wt-composite>
+    <span wt-section="header">
+        Composite Component Title
+    </span>
+    <div wt-widget wt-name="first widget">
+        <div class="alert alert-success">
+            Random Value: {{randomValue}}
+        </div>
+    </div>
+    <div wt-widget wt-name="second widget">
+        <div class="alert alert-info">
+            Random Value: {{randomValue}}
+        </div>
+    </div>
+    <div wt-widget wt-name="third widget">
+        <div wt-time></div>
+    </div>
+    <span wt-section="footer">
+        Composite Component Footer
+    </span>
+</div>
 ```
 
 Links
