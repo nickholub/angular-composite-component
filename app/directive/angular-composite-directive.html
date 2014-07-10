@@ -1,15 +1,17 @@
 <div>
     <div class="panel panel-default">
         <div class="panel-body">
-            <span wt-transclude="header"></span>
+            <span cs-transclude="header"></span>
         </div>
     </div>
 
     <p>
-        <button ng-repeat="widget in widgetDefs"
-                type="button" class="btn btn-sm btn-primary">
-            {{widget.name}}
-        </button>
+        <ul class="list-inline">
+            <li>Widgets:</li>
+            <li ng-repeat="widget in widgetDefs">
+                <span class="label label-primary">{{widget.name}}</span>
+            </li>
+        </ul>
     </p>
 
     <div ng-repeat="widgetDef in widgetDefs">
@@ -18,14 +20,14 @@
                 {{widgetDef.name}}
             </div>
             <div class="panel-body">
-                <div wt-widget-transclude="widgetDef"></div>
+                <div cs-widget-transclude="widgetDef"></div>
             </div>
         </div>
     </div>
 
     <div class="panel panel-default">
         <div class="panel-body">
-            <span wt-transclude="footer"></span>
+            <span cs-transclude="footer"></span>
         </div>
     </div>
 </div>

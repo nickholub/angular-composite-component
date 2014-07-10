@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('ui.composite', [])
-  .directive('wtComposite', function ($compile) {
+  .directive('csComposite', function ($compile) {
     return {
       restrict: 'A',
       controller: function ($scope) {
@@ -33,14 +33,14 @@ angular.module('ui.composite', [])
     };
   })
   // directive to capture "wt-section" content
-  .directive('wtSection', function () {
+  .directive('csSection', function () {
     return {
       transclude: 'element',
       priority: 100,
-      require: '^wtComposite',
+      require: '^csComposite',
       link: function (scope, element, attrs, ctrl, $transclude) {
         var directiveTransclude = {
-          id: attrs.wtSection,
+          id: attrs.csSection,
           transclude: $transclude,
           element: element
         };
@@ -49,29 +49,29 @@ angular.module('ui.composite', [])
       }
     };
   })
-  // directive to capture "wt-widget" content
-  .directive('wtWidget', function () {
+  // directive to capture "cs-widget" content
+  .directive('csWidget', function () {
     return {
       transclude: 'element',
       priority: 100,
-      require: '^wtComposite',
+      require: '^csComposite',
       link: function (scope, element, attrs, ctrl, $transclude) {
         var widgetTransclude = {
           transclude: $transclude,
           element: element,
-          name: attrs.wtName
+          name: attrs.csName
         };
 
         ctrl.addWidgetTransclude(widgetTransclude);
       }
     };
   })
-  // directive to output "wt-section" content
-  .directive('wtTransclude', function ($animate) {
+  // directive to output "cs-section" content
+  .directive('csTransclude', function ($animate) {
     return {
       transclude: true,
       link: function (scope, element, attrs) {
-        var id = attrs.wtTransclude;
+        var id = attrs.csTransclude;
         var directiveTransclude = scope.transcludes[id];
         if (directiveTransclude) {
           var selectedScope = scope.$new();
@@ -82,12 +82,12 @@ angular.module('ui.composite', [])
       }
     };
   })
-  // directive to output "wt-widget" content
-  .directive('wtWidgetTransclude', function ($animate) {
+  // directive to output "cs-widget" content
+  .directive('csWidgetTransclude', function ($animate) {
     return {
       transclude: true,
       link: function (scope, element, attrs) {
-        var widgetDef = scope.$eval(attrs.wtWidgetTransclude);
+        var widgetDef = scope.$eval(attrs.csWidgetTransclude);
         var selectedScope = scope.$new();
         var widgetTransclude = scope.widgetTranscludes[widgetDef.id];
 
