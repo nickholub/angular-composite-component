@@ -75,8 +75,8 @@ angular.module('ui.composite', [])
         var directiveTransclude = scope.transcludes[id];
         if (directiveTransclude) {
           var selectedScope = scope.$new();
-          directiveTransclude.transclude(selectedScope, function (copy) {
-            element.append(copy);
+          directiveTransclude.transclude(selectedScope, function (clone) {
+            element.append(clone);
           });
         }
       }
@@ -91,8 +91,8 @@ angular.module('ui.composite', [])
         var selectedScope = scope.$new();
         var widgetTransclude = scope.widgetTranscludes[widgetDef.id];
 
-        widgetTransclude.transclude(selectedScope, function (copy) {
-          element.append(copy);
+        widgetTransclude.transclude(selectedScope, function (clone) {
+          element.append(clone);
         });
       }
     };
