@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('app', ['ngRoute', 'ui.composite'])
+angular.module('app', ['ngRoute', 'ui.bootstrap', 'ui.composite'])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
@@ -9,28 +9,14 @@ angular.module('app', ['ngRoute', 'ui.composite'])
       });
   })
   .controller('MainCtrl', function ($scope, $interval) {
+    // random value
     $interval(function () {
-      $scope.randomValue = Math.floor(Math.random() * 100);
+      $scope.randomValue = Math.floor(Math.random() * 1000);
     }, 500);
-  })
-  .directive('wtTime', function ($interval) {
-    return {
-      restrict: 'A',
-      scope: true,
-      replace: true,
-      template: '<div>Time<div class="alert alert-warning">{{time}}</div></div>',
-      link: function (scope) {
-        function update() {
-          scope.time = new Date().toLocaleTimeString();
-        }
 
-        update();
-
-        var promise = $interval(update, 500);
-
-        scope.$on('$destroy', function () {
-          $interval.cancel(promise);
-        });
-      }
-    };
+    // percentage for progress bar
+    $scope.percentage = 5;
+    $interval(function () {
+      $scope.percentage = ($scope.percentage + 10) % 100;
+    }, 500);
   });
