@@ -67,7 +67,7 @@ angular.module('ui.composite', [])
     };
   })
   // directive to output "cs-section" content
-  .directive('csTransclude', function ($animate) {
+  .directive('csTransclude', function () {
     return {
       transclude: true,
       link: function (scope, element, attrs) {
@@ -76,14 +76,14 @@ angular.module('ui.composite', [])
         if (directiveTransclude) {
           var selectedScope = scope.$new();
           directiveTransclude.transclude(selectedScope, function (copy) {
-            $animate.enter(copy, element);
+            element.append(copy);
           });
         }
       }
     };
   })
   // directive to output "cs-widget" content
-  .directive('csWidgetTransclude', function ($animate) {
+  .directive('csWidgetTransclude', function () {
     return {
       transclude: true,
       link: function (scope, element, attrs) {
@@ -92,7 +92,7 @@ angular.module('ui.composite', [])
         var widgetTransclude = scope.widgetTranscludes[widgetDef.id];
 
         widgetTransclude.transclude(selectedScope, function (copy) {
-          $animate.enter(copy, element);
+          element.append(copy);
         });
       }
     };
