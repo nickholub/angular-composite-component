@@ -25,7 +25,7 @@ angular.module('ui.composite', [])
         };
       },
       link: function (scope, element) {
-        var templateString = '<div ng-include="\'directive/angular-composite-directive.html\'"></div>';
+        var templateString = '<div ng-include="\'directive/angular-composite-component.html\'"></div>';
         var contentElement = angular.element(templateString);
         element.append(contentElement);
         $compile(contentElement)(scope);
