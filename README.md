@@ -3,6 +3,8 @@ angular-composite-component
 
 AngularJS Composite Component (Directive).
 
+Live Demo [http://nickholub.github.io/angular-composite-component](http://nickholub.github.io/angular-composite-component)
+
 Directive [source code](app/directive)
 
 Directive [example usage](app)
