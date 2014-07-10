@@ -67,7 +67,7 @@ angular.module('ui.composite', [])
     };
   })
   // directive to output "cs-section" content
-  .directive('csTransclude', function ($animate) {
+  .directive('csTransclude', function () {
     return {
       transclude: true,
       link: function (scope, element, attrs) {
@@ -75,15 +75,15 @@ angular.module('ui.composite', [])
         var directiveTransclude = scope.transcludes[id];
         if (directiveTransclude) {
           var selectedScope = scope.$new();
-          directiveTransclude.transclude(selectedScope, function (copy) {
-            $animate.enter(copy, element);
+          directiveTransclude.transclude(selectedScope, function (clone) {
+            element.append(clone);
           });
         }
       }
     };
   })
   // directive to output "cs-widget" content
-  .directive('csWidgetTransclude', function ($animate) {
+  .directive('csWidgetTransclude', function () {
     return {
       transclude: true,
       link: function (scope, element, attrs) {
@@ -91,8 +91,8 @@ angular.module('ui.composite', [])
         var selectedScope = scope.$new();
         var widgetTransclude = scope.widgetTranscludes[widgetDef.id];
 
-        widgetTransclude.transclude(selectedScope, function (copy) {
-          $animate.enter(copy, element);
+        widgetTransclude.transclude(selectedScope, function (clone) {
+          element.append(clone);
         });
       }
     };
