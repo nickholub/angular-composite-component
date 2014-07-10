@@ -10,25 +10,27 @@ Directive [source code](app/directive)
 Directive [example usage](app)
 
 ```html
-<div wt-composite>
-    <div wt-section="header">
-        Composite Component Title
+<div cs-composite>
+    <div cs-section="header">
+        Composite Component Header
     </div>
-    <div wt-widget wt-name="first widget">
+    <div cs-widget cs-name="first widget">
         <div class="alert alert-success">
             Random Value: {{randomValue}}
         </div>
     </div>
-    <div wt-widget wt-name="second widget">
+    <div cs-widget cs-name="second widget">
         <div class="alert alert-info">
-            Random Value: {{randomValue}}
+            Percentage: {{percentage}}%
         </div>
     </div>
-    <div wt-widget wt-name="third widget">
-        <div wt-time></div>
+    <div cs-widget cs-name="third widget">
+        <div progressbar class="progress-striped active" type="info" value="percentage">{{percentage}}%</div>
     </div>
-    <div wt-section="footer">
+    <div cs-section="footer">
         Composite Component Footer
+        <div>Random Value: {{randomValue}}</div>
+        <div>Percentage: {{percentage}}%</div>
     </div>
 </div>
 ```
