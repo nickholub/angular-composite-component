@@ -1,7 +1,7 @@
-angular-composite-directive
+angular-composite-component
 ====================
 
-AngularJS Composite Directive
+AngularJS Composite Component (Directive).
 
 Directive [source code](app/directive)
 
