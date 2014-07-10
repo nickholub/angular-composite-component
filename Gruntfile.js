@@ -7,8 +7,9 @@ module.exports = function (grunt) {
   grunt.initConfig({
     watch: {
       files: [
+        'app/{,*/}*.html',
         'app/{,*/}*.js',
-        'app/{,*/}*.html'
+        'app/{,*/}*.css'
       ],
       tasks: [],
       livereload: {
@@ -17,7 +18,8 @@ module.exports = function (grunt) {
         },
         files: [
           'app/{,*/}*.html',
-          'app/**/*.js'
+          'app/**/*.js',
+          'app/**/*.css'
         ]
       }
     },
