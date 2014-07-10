@@ -25,7 +25,9 @@ Directive [example usage](app)
         </div>
     </div>
     <div cs-widget cs-name="third widget">
-        <div progressbar class="progress-striped active" type="info" value="percentage">{{percentage}}%</div>
+        <div progressbar class="progress-striped active" type="info" value="percentage">
+            {{percentage}}%
+        </div>
     </div>
     <div cs-section="footer">
         Composite Component Footer
