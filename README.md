@@ -1,7 +1,7 @@
 angular-composite-component
 ====================
 
-AngularJS Composite Component (Directive).
+AngularJS Composite Component (Directive). [![Build Status](https://travis-ci.org/nickholub/angular-composite-component.svg?branch=master)](https://travis-ci.org/nickholub/angular-composite-component)
 
 Live Demo [http://nickholub.github.io/angular-composite-component](http://nickholub.github.io/angular-composite-component)
 
