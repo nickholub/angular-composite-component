@@ -3,7 +3,7 @@ angular-composite-component
 
 [![Build Status](https://travis-ci.org/nickholub/angular-composite-component.svg?branch=master)](https://travis-ci.org/nickholub/angular-composite-component)
 
-AngularJS Composite Component (Directive).
+AngularJS Composite Component (Directive). This is also an example of having multiple $transclude in the directive.
 
 Live Demo [http://nickholub.github.io/angular-composite-component](http://nickholub.github.io/angular-composite-component)
 
