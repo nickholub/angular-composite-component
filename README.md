@@ -65,9 +65,13 @@ Directive [example usage](app)
 Links
 -----
 
-[Node.js](http://nodejs.org/) Software platform built on JavaScript runtime
+[ngTransclude](https://docs.angularjs.org/api/ng/directive/ngTransclude) AngularJS transclude directive
+
+[Creating Custom Directives](https://docs.angularjs.org/guide/directive) AngularJS custom directives developer guide
 
 [AngularJS](http://angularjs.org/) JavaScript framework
+
+[Node.js](http://nodejs.org/) Software platform built on JavaScript runtime
 
 [Bower](http://bower.io/) Package manager for the web
 
