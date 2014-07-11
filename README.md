@@ -69,6 +69,8 @@ Links
 
 [Creating Custom Directives](https://docs.angularjs.org/guide/directive) AngularJS custom directives developer guide
 
+[AngularJS Issue #4357](https://github.com/angular/angular.js/issues/4357) AngularJS issue (open) for having multiple transcluding directives on an element
+
 [AngularJS](http://angularjs.org/) JavaScript framework
 
 [Node.js](http://nodejs.org/) Software platform built on JavaScript runtime
