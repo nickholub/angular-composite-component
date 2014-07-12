@@ -77,3 +77,6 @@ Links
 
 [Grunt](http://gruntjs.com/) JavaScript Task Runner
 
+[Bootstrap](http://getbootstrap.com/) HTML/CSS/JavaScript Front-End framework
+
+[UI Bootstrap](http://angular-ui.github.io/bootstrap/) AngularJS directives for Bootstrap
